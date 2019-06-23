@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>牧轩KMS服务</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/site.css" />
+</head>
+
+<body>
+    <header>
+        <h2>牧轩激活服务</h2>
+        <div class="alert alert-primary" role="alert">
+            居士的服务器已经Down了，以后仅仅提供重定向服务，直接重定向解析到目前可以使用的服务器。
+        </div>
+
+        <div class="container-fluid">
+            <div class="bd-callout bd-callout-warning">
+                <h5 id="conveying-meaning-to-assistive-technologies">提示</h5>
+                <p>本服务是KMS批量授权服务，默认拥有180天的激活授权，超过180天必须重新激活，Windows 系列KMS产品每7天自动续期，只要服务器不Down，支持永久激活。
+                    本服务器会一直重定向解析到目前尚可使用的服务器，会根据用户的反馈修改服务器，支持永久有效。</p>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Windows激活服务
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <h4>1. 打开Powershell(管理员)</h4>
+                        <h4>2. 修改KMS服务器地址</h4>
+                        <p>
+                            把kms服务器地址修改为本站居士的kms服务器。
+                            <code>
+                                slmgr /skms kms.lucoder.com
+                            </code>
+                        </p>
+                        <h4>3. 激活系统</h4>
+                        <p>此时你可以在设置里面点击激活按钮激活，也可以使用下面的命令激活：
+                            <code>
+                                slmgr /ato
+                            </code>
+                            此时你的系统应该已经被激活，如果没有被激活，查看第4点。
+                        </p>
+                        <h4>4. 系统无法激活</h4>
+                        <div>
+                            <p>如果没有被激活，问题就比较复杂了，但是一般情况是下面三点，按照顺序依次尝试：</p>
+                            <h5>(a). 服务器Down了</h5>
+                            <p>首先ping一下服务器是否通顺的：
+                                <code>ping kms.lucoder.com</code>
+                                如果服务器不通，说明服务器down了，请联系：helper@vip.lucoder.com，及时修改服务器。
+                            </p>
+                            <h5>(b). 你的KEY被你删除了</h5>
+                            <p>有可能是你运行了<span class="strongger">slmgr /upk</span>命令，key被你删除了，首先需要使用下面的方法安装KEY。
+                                <code>slmgr /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code>
+                                每一个版本的系统的KEY是不同的，所以就需要按照你的需求填写KEY，所有的KMS的KEY可以在这里获取：<a
+                                    href="https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys">https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys</a>，找到你的电脑版本的KEY安装即可，使用下面的命令可以查看你的电脑的版本：
+                                <code>wmic os get caption</code>
+                            </p>
+                            <h5>(c). 你的系统不支持KMS</h5>
+                            <p>KMS只支持VOL批量授权的版本，并不适合任何的系统，零售版和家庭版都不能使用KMS，或者需要转换版本才行，使用 Win+i 快捷键打开<span
+                                    class="strongger">「设置」</span>- <span class="strongger">点击「更新和安全」</span>- <span
+                                    class="strongger">「激活」</span>-<span class="strongger">更改产品密钥按钮</span>
+                                <code>企业版Key：NPPR9-FWDCX-D2C8J-H872K-2YT43</code>
+                                <code>专业版Key：VK7JG-NPHTM-C97JM-9MPGT-3V66T</code>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                            Office激活服务
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <h4>1. 管理员身份启动Powershell</h4>
+                        <h4>2. 进入OSPP.VBS目录</h4>
+                        <div>
+                            你需要找到你的OSPP.VBS目录，下面是一些默认的目录：
+                            <h5>Office 2010</h5>
+                            <p>
+                                <code>
+                                    32位：cd C:\Program Files (x86)\Microsoft Office\Office14<br />
+                                    64位：cd C:\Program Files\Microsoft Office\Office14
+                                </code>
+                            </p>
+
+                            <h5>Office 2013</h5>
+                            <p>
+                                <code>
+                                    32位：cd C:\Program Files (x86)\Microsoft Office\Office15<br />
+                                    64位：cd C:\Program Files\Microsoft Office\Office15
+                                </code>
+                            </p>
+
+                            <h5>Office 2016</h5>
+                            <p>
+                                此目录同时也是<span class="strongger">Office 2016</span>、<span class="strongger">Office
+                                    2019</span>、<span class="strongger">Office 365</span>的目录。
+                                <code>
+                                    32位：cd C:\Program Files (x86)\Microsoft Office\Office16<br />
+                                    64位：cd C:\Program Files\Microsoft Office\Office16
+                                </code>
+                            </p>
+                        </div>
+                        <h4>3. 执行命令激活Office软件</h4>
+                        <div>
+                            <code>cscript ospp.vbs /sethst:kms.lucoder.com<br />cscript ospp.vbs /act</code>
+                        </div>
+                        <h4>4. 查看激活状态</h4>
+                        <div>
+                            <code>cscript ospp.vbs /dstatus</code>
+                        </div>
+                        <h4>5. 激活失败</h4>
+                        <div>
+                            <p>激活失败原因也可能有很多，但是主要原因依然是三种原因：</p>
+                            <h5>(a). 服务器Down了</h5>
+                            <p>首先ping一下服务器是否通顺的：
+                                <code>ping kms.lucoder.com</code>
+                                如果服务器不通，说明服务器down了，请联系：helper@vip.lucoder.com，及时修改服务器。
+                            </p>
+                            <h5>(b). 你的KEY被你删除了</h5>
+                            <p>有可能是key被你删除了，首先需要使用下面的方法安装KEY。
+                                <code>cscript ospp.vbs /inpkey:XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</code>
+                                每一个版本Office的KEY是不同的，所以就需要按照你的需求填写KEY，所有的KMS的KEY可以在这里获取：<a
+                                    href="https://docs.microsoft.com/zh-cn/DeployOffice/vlactivation/gvlks#gvlks-for-office-2016">https://docs.microsoft.com/zh-cn/DeployOffice/vlactivation/gvlks#gvlks-for-office-2016</a>，找到你的电脑版本的KEY安装即可，使用下面的命令可以查看你的电脑的版本：
+                                <code>wmic os get caption</code>
+                            </p>
+                            <h5>(c). 你的Office不支持KMS</h5>
+                            <p>
+                                转换工具<a
+                                    href="https://www.lanzous.com/i4nm9yh">https://www.lanzous.com/i4nm9yh</a>，参考文章地址：<a
+                                    href="https://www.cnblogs.com/muxuan/p/kms.html">https://www.cnblogs.com/muxuan/p/kms.html</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="false" aria-controls="collapseThree">
+                            支持版本信息
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <p>目前本服务器支持：<strong class="strongger">Windows 7/8/10</strong></p>
+                        <p>目前本Office支持：<strong class="strongger">Office 2010/2013/2016/2019/365(特殊)</strong></p>
+                        <p style="text-align: right;padding:0.2em;">检测时间：2019-06-20</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                            aria-expanded="false" aria-controls="collapseFour">
+                            自建服务
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                    <div class="card-body">
+                        大部分的KMS服务都是部署在Linux或者Windows上的，最简单的方式是参考<a
+                            href="https://github.com/Wind4/vlmcsd.git">vlmcsd</a>工具。
+                        <h4>1. 下载源码</h4>
+                        <p>
+                            <code>
+                                wget -O vlmcsd.tar.gz https://github.com/Wind4/vlmcsd/archive/svn1112.tar.gz <br />
+                                tar -zxvf vlmcsd.tar.gz <br />
+                                cd cd vlmcsd-svn1112
+                            </code>
+                        </p>
+                        <h4>2. 编译源码</h4>
+                        <code>make -j</code>
+                        <h4>3. 启动服务</h4>
+                        <code>cd bin && ./vlmcsd</code>
+                        <h4>4. 测试</h4>
+                        <div>
+                            <code>./vlmcs</code>
+                            返回响应信息就表示成功了：
+                            <code>
+                                Connecting to 127.0.0.1:1688 ... successful <br />
+                                Sending activation request (KMS V6) 1 of 1  -> 05426-00206-559-272468-03-1104-9200.0000-0272019 (3A1C049600B60076)
+                            </code>
+                            消息不一定完全一样，但是基本都是差不多的，只要能链接到服务器即可。
+                        </div>
+                        <hr />
+                        <div class="alert alert-primary" role="alert">
+                            <span class="strongger">注意</span>：尽管Windows服务器支持KMS，不建议使用Windows服务器做KMS服务器，你懂的。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer style="text-align:center;padding:2em;">
+        <p>牧轩KMS服务：<a href="">https://help.lucoder.com/plugins/kms</a> . <span id="year"></span></p>
+    </footer>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("year").innerHTML = (new Date()).getFullYear();
+        }
+    </script>
+</body>
+
+</html>
