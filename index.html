@@ -51,7 +51,7 @@
     </section>
 
     <footer style="text-align:center;padding:2em;">
-        <p>牧轩服务：<a href="">https://help.lucoder.com</a> . <span id="year"></span></p>
+        <p><span id="curTitle"></span>：<a href="" id="curUrl">https://help.lucoder.com</a> . <span id="year"></span></p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
@@ -60,6 +60,11 @@
     <script type="text/javascript">
         window.onload = function () {
             document.getElementById("year").innerHTML = (new Date()).getFullYear();
+
+            document.getElementById("curTitle").innerText = document.getElementsByTagName("title")[0].innerText;
+
+            document.getElementById("curUrl").innerText = location.href;
+            document.getElementById("curUrl").setAttribute("href",location.href);
         }
     </script>
 </body>
