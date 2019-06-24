@@ -46,6 +46,11 @@
                     <td><a href="/plugins/microsoft/index.html">微软开发服务</a></td>
                     <td>适合于微软开发软件例如Visual Studio、SQL Server等系列产品的激活服务</td>
                 </tr>
+                <tr>
+                    <td>4</td>
+                    <td><a href="/plugins/github/index.html">优秀开源</a></td>
+                    <td>一些你可能不知道的优秀开源框架和程序</td>
+                </tr>
             </tbody>
         </table>
     </section>
@@ -60,11 +65,9 @@
     <script type="text/javascript">
         window.onload = function () {
             document.getElementById("year").innerHTML = (new Date()).getFullYear();
-
             document.getElementById("curTitle").innerText = document.getElementsByTagName("title")[0].innerText;
-
             document.getElementById("curUrl").innerText = location.href;
-            document.getElementById("curUrl").setAttribute("href",location.href);
+            document.getElementById("curUrl").setAttribute("href", location.href);
         }
     </script>
 </body>
