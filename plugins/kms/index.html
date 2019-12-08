@@ -158,6 +158,13 @@
                                     href="https://www.cnblogs.com/muxuan/p/kms.html">https://www.cnblogs.com/muxuan/p/kms.html</a>
                             </p>
                         </div>
+                        <h4>6.Office 365转换VOL版本指令</h4>
+                        <div>
+                            <code>
+for /f %x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%x"<br />
+for /f %x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%x"
+                            </code>
+                        </div>
                     </div>
                 </div>
             </div>
